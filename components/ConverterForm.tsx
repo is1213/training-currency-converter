@@ -1,8 +1,9 @@
-import AmountInput from './AmountInput';
-import CurrencySelect from './CurrencySelect';
-import SwapButton from './SwapButton';
-import ConversionResult from './ConversionResult';
-import { ExchangeRates } from '@/types';
+import AmountInput from "./AmountInput";
+import CurrencySelect from "./CurrencySelect";
+import SwapButton from "./SwapButton";
+import RefreshRatesButton from "./RefreshRatesButton";
+import ConversionResult from "./ConversionResult";
+import { ExchangeRates } from "@/types";
 
 interface ConverterFormProps {
   amount: string;
@@ -15,6 +16,9 @@ interface ConverterFormProps {
   onFromCurrencyChange: (value: string) => void;
   onToCurrencyChange: (value: string) => void;
   onSwap: () => void;
+  onRefreshRates: () => void;
+  refreshLoading: boolean;
+  refreshError: string | null;
 }
 
 export default function ConverterForm({
@@ -28,10 +32,14 @@ export default function ConverterForm({
   onFromCurrencyChange,
   onToCurrencyChange,
   onSwap,
+  onRefreshRates,
+  refreshLoading,
+  refreshError,
 }: ConverterFormProps) {
-  const currentRate = exchangeRates && fromCurrency && toCurrency
-    ? exchangeRates.rates[toCurrency] / exchangeRates.rates[fromCurrency]
-    : null;
+  const currentRate =
+    exchangeRates && fromCurrency && toCurrency
+      ? exchangeRates.rates[toCurrency] / exchangeRates.rates[fromCurrency]
+      : null;
 
   return (
     <div className="space-y-4">
@@ -51,15 +59,22 @@ export default function ConverterForm({
 
           <SwapButton onClick={onSwap} />
 
-          <CurrencySelect
-            value={toCurrency}
-            onChange={onToCurrencyChange}
+          <CurrencySelect value={toCurrency} onChange={onToCurrencyChange} />
+
+          <RefreshRatesButton
+            onClick={onRefreshRates}
+            loading={refreshLoading}
+            ariaLabel="Refresh exchange rates"
           />
         </div>
-        
+
         {/* Error message below the row */}
         {validationError && (
           <p className="text-sm text-red-600 px-1">{validationError}</p>
+        )}
+        {/* Refresh error message */}
+        {refreshError && !validationError && (
+          <p className="text-sm text-red-600 px-1">{refreshError}</p>
         )}
       </div>
 
