@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "FavoriteCurrencyList",
+  "type": "object",
+  "properties": {
+    "favorites": {
+      "type": "array",
+      "maxItems": 5,
+      "items": {
+        "type": "object",
+        "properties": {
+          "code": { "type": "string" },
+          "name": { "type": "string" },
+          "symbol": { "type": "string" }
+        },
+        "required": ["code", "name", "symbol"]
+      },
+      "uniqueItems": true
+    },
+    "lastUpdated": { "type": "number" }
+  },
+  "required": ["favorites"]
+}
