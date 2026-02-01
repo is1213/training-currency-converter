@@ -1,50 +1,56 @@
-# [PROJECT_NAME] Constitution
-<!-- Example: Spec Constitution, TaskFlow Constitution, etc. -->
+<!--
+Sync Impact Report
+------------------
+Version change: none → 1.0.0
+Principles added:
+	- Code Quality
+	- Testing Standards (80% coverage)
+	- Accessibility (WCAG 2.1 AA)
+Removed: Template placeholders, unused sections
+Templates requiring update: Constitution Check in plan-template.md (✅ reviewed, no change needed)
+Deferred: RATIFICATION_DATE (TODO)
+-->
+
+# Currency Converter Constitution
 
 ## Core Principles
 
-### [PRINCIPLE_1_NAME]
-<!-- Example: I. Library-First -->
-[PRINCIPLE_1_DESCRIPTION]
-<!-- Example: Every feature starts as a standalone library; Libraries must be self-contained, independently testable, documented; Clear purpose required - no organizational-only libraries -->
+### I. Code Quality
 
-### [PRINCIPLE_2_NAME]
-<!-- Example: II. CLI Interface -->
-[PRINCIPLE_2_DESCRIPTION]
-<!-- Example: Every library exposes functionality via CLI; Text in/out protocol: stdin/args → stdout, errors → stderr; Support JSON + human-readable formats -->
+All code MUST adhere to clear, consistent style and best practices:
 
-### [PRINCIPLE_3_NAME]
-<!-- Example: III. Test-First (NON-NEGOTIABLE) -->
-[PRINCIPLE_3_DESCRIPTION]
-<!-- Example: TDD mandatory: Tests written → User approved → Tests fail → Then implement; Red-Green-Refactor cycle strictly enforced -->
+- Use idiomatic, modern TypeScript and React patterns
+- Enforce static typing and strict null checks
+- Code must be self-documenting and maintainable
+- Linting and formatting are mandatory (auto-fix on commit)
+- No dead code, unused variables, or commented-out blocks in main branches
 
-### [PRINCIPLE_4_NAME]
-<!-- Example: IV. Integration Testing -->
-[PRINCIPLE_4_DESCRIPTION]
-<!-- Example: Focus areas requiring integration tests: New library contract tests, Contract changes, Inter-service communication, Shared schemas -->
+_Rationale: High code quality ensures maintainability, reduces bugs, and enables rapid onboarding._
 
-### [PRINCIPLE_5_NAME]
-<!-- Example: V. Observability, VI. Versioning & Breaking Changes, VII. Simplicity -->
-[PRINCIPLE_5_DESCRIPTION]
-<!-- Example: Text I/O ensures debuggability; Structured logging required; Or: MAJOR.MINOR.BUILD format; Or: Start simple, YAGNI principles -->
+### II. Testing Standards (80% Coverage)
 
-## [SECTION_2_NAME]
-<!-- Example: Additional Constraints, Security Requirements, Performance Standards, etc. -->
+Automated tests are REQUIRED for all features and bug fixes:
 
-[SECTION_2_CONTENT]
-<!-- Example: Technology stack requirements, compliance standards, deployment policies, etc. -->
+- Minimum 80% line and branch coverage (Jest, React Testing Library)
+- All critical logic, reducers, and utilities must be covered
+- No PR may be merged if coverage drops below threshold
+- Tests must be reliable, isolated, and repeatable
 
-## [SECTION_3_NAME]
-<!-- Example: Development Workflow, Review Process, Quality Gates, etc. -->
+_Rationale: High test coverage prevents regressions and enables safe refactoring._
 
-[SECTION_3_CONTENT]
-<!-- Example: Code review requirements, testing gates, deployment approval process, etc. -->
+### III. Accessibility (WCAG 2.1 AA)
+
+All user-facing features MUST meet WCAG 2.1 AA accessibility standards:
+
+- Semantic HTML and ARIA roles where appropriate
+- Sufficient color contrast and keyboard navigation
+- All interactive elements must be accessible via screen readers
+- Automated and manual accessibility checks required before release
+
+_Rationale: Accessibility is a non-negotiable requirement for inclusivity and legal compliance._
 
 ## Governance
-<!-- Example: Constitution supersedes all other practices; Amendments require documentation, approval, migration plan -->
 
-[GOVERNANCE_RULES]
-<!-- Example: All PRs/reviews must verify compliance; Complexity must be justified; Use [GUIDANCE_FILE] for runtime development guidance -->
+This constitution supersedes all other project practices. Amendments require documentation, team approval, and a migration plan. All pull requests and code reviews MUST verify compliance with these principles. Any exception must be justified and documented.
 
-**Version**: [CONSTITUTION_VERSION] | **Ratified**: [RATIFICATION_DATE] | **Last Amended**: [LAST_AMENDED_DATE]
-<!-- Example: Version: 2.1.1 | Ratified: 2025-06-13 | Last Amended: 2025-07-16 -->
+**Version**: 1.0.0 | **Ratified**: TODO(RATIFICATION_DATE) | **Last Amended**: 2026-02-01
